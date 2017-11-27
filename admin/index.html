@@ -1,0 +1,80 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body ng-app="BlankApp" ng-cloak>
+    <div ng-controller="AppCtrl" layout="column" style="height:600px" ng-cloak="" class="toolbardemoScrollShrink">
+        
+          <md-toolbar md-scroll-shrink="" ng-if="true" ng-controller="TitleController">
+            <div class="md-toolbar-tools">
+              <h3>
+                <span>{{title}}</span>
+              </h3>
+            </div>
+          </md-toolbar>
+    <div ng-cloak="" class="tabsdemoDynamicHeight">
+        <md-content>
+          <md-tabs md-dynamic-height="" md-border-bottom="">
+                <md-tab label="==>">
+                        <md-content class="md-padding">
+                   
+                      
+              
+                        </md-content>
+                      </md-tab>
+          
+            <md-tab label="{{user.username}}" ng-repeat="user in users" md-on-select="fetchChat(user.user_id)">
+              <md-content class="md-padding">
+         
+            <ol class="chat">
+                <div ng-repeat="chat in chats" ng-init="">
+                 
+            <li ng-class="leftOrRight(chat.from_user,user.user_id)">
+                <div class="avatar"><img ng-src="{{avatar(chat.from_user,user.user_id)}}" draggable="false"/></div>
+              <div class="msg">
+                <p>{{chat.message}}</p>
+                <time>{{chat.message_datetime}}</time>
+              </div>
+              </li>
+            </div>
+            </li>
+           
+        
+            </ol>
+    
+              </md-content>
+            </md-tab>
+
+        
+          </md-tabs>
+        </md-content>
+      </div>
+      
+</div>
+      <!--
+      Copyright 2016 Google Inc. All Rights Reserved. 
+      Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+      -->
+  
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript" src="app.js"></script>
+  
+</body>
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at https://material.angularjs.org/license.
+-->
